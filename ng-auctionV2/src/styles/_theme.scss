@@ -1,0 +1,19 @@
+@import '~@angular/material/theming';
+
+//Declares a variable for the primary palette and initializes it with $mat-cyan palette
+$nga-primary: mat-palette($mat-cyan);
+//Declares & initalizes a variable for the accent palette specifying a default, lighter, and darker hue of $mat-cyan
+$nga-accent: mat-palette($mat-cyan, A200, A100, A400);
+//Declares & initializes a variable for the warning palette
+$nga-warn: mat-palette($mat-red);
+
+//Creates the theme (a Saas containing all palettes)
+$nga-theme: mat-light-theme($nga-primary, $nga-accent, $nga-warn);
+
+//Declares & initializes a variable for the background palette
+$nga-background: map-get($nga-theme, background);
+//Declares & initializes a variable for the foreground palette
+$nga-foreground: map-get($nga-theme, foreground);
+
+//Declares & initializes the variable for typography
+$nga-typography: mat-typography-config();

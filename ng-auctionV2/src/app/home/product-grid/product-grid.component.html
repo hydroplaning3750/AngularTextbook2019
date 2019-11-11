@@ -1,0 +1,21 @@
+<!--Subscribes to the number of columns and binds it to the cols property of <mat-grid-list>-->
+<mat-grid-list [cols]="columns$ | async" gutterSize="16">
+    <!--Renders a <mat-grid-tile> for each product-->
+    <mat-grid-tile class="tile" *ngFor="let product of products">
+        <!--Wraps the content of each tile in the <a> tag to turn the tile into a clickable link-->
+        <a class="tile__content"
+           fxLayout="column"
+           fxLayoutAlign="center center"
+           [routerLink]="['/products', product.id]"> <!--Clicking on the tile will navigate to the path /products, passing the selected product's id as a paremeter-->  
+          <span class="tile__price-tag"
+                ngClass.xs="tile__price-tag--xs"> <!--For extra small viewports, adds the styles defined in tile__price-tag-xs-->
+            {{ product.price | currency:'USD':'symbol':'.0' }}
+          </span>   
+          <div class="tile__thumbnail"
+               [ngStyle]="{'background-image': 'url(' + product.imageUrl + ')'}"></div> 
+          <div class="tile__title"
+               ngClass.xs="tile__title--xs"
+               ngClass.sm="tile__title--sm">{{ product.title }}</div>
+        </a>
+    </mat-grid-tile>
+</mat-grid-list>

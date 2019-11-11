@@ -1,0 +1,68 @@
+@import '../../styles/theme';
+
+:host {
+    display: block;
+}
+
+.tile {
+    //Makes the tile background color the same as the Angular Material card (white)
+    background-color: mat-color($nga-background, card);
+
+    //If the user hovers over the tile, elevate the tile to level 4 by adding the shadow effect (returned by the mat-elevation mixin)
+    &:hover {
+        @include mat-elevation(4);
+        transition: 0.3s;
+    }
+}
+
+.tile__content {
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+}
+
+//Default style for the product price tag
+.tile__price-tag {
+    color: mat-color($nga-foreground, text);
+    font-size: 16px;
+    font-weight: 700;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+//Style for the product price tag for extra-small viewports
+.tile__price-tag-xs {
+    font-size: 14px;
+}
+
+.tile__thumbnail {
+    background: no-repeat 50% 50%;
+    background-size: contain;
+    height: 50%;
+    width: 50%;
+}
+
+//Default style for the product title
+.tile__title { 
+    color: mat-color($nga-foreground, text);
+    font-family: 'Abril Fatface', cursive;
+    font-size: mat-font-size($nga-typography, display-1);
+    line-height: mat-line-height($nga-typography, display-1);
+}
+
+//Style for the product title for small viewports
+.tile__title-- sm {
+    font-size: mat-font-size($nga-typography, headline);
+    line-height: mat-line-height($nga-typography, headline);
+}
+
+//Style for the product title for extra-small viewports
+.tile__title-- xs {
+    font-size: mat-font-size($nga-typography, title);
+    line-height: mat-line-height($nga-typography, title);
+}
