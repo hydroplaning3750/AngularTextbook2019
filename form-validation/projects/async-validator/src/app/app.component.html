@@ -1,0 +1,17 @@
+<form [formGroup]="formModel">
+  <h2>Sync and async validation demo</h2>
+  
+  Enter your SSN: <input type="text" formControlName="ssnControl">  
+  <span *ngIf="formModel.hasError('ssn', 'ssnControl');
+               else validSSN">
+    SSN is invalid
+  </span>
+
+  <span *ngIf="formModel.hasError('work', 'ssnControl')">
+    {{formModel.get('ssnControl').errors.work}}
+  </span>
+
+  <span *ngIf="formModel.hasError('cash')">
+    {{formModel.errors.cash}}
+  </span>
+</form>

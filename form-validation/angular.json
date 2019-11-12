@@ -1,0 +1,861 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "form-validation": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/form-validation",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "form-validation:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "form-validation:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "form-validation:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "form-validation:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "form-validation:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "async-validator": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/async-validator",
+      "sourceRoot": "projects/async-validator/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/async-validator",
+            "index": "projects/async-validator/src/index.html",
+            "main": "projects/async-validator/src/main.ts",
+            "polyfills": "projects/async-validator/src/polyfills.ts",
+            "tsConfig": "projects/async-validator/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/async-validator/src/favicon.ico",
+              "projects/async-validator/src/assets"
+            ],
+            "styles": [
+              "projects/async-validator/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/async-validator/src/environments/environment.ts",
+                  "with": "projects/async-validator/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "async-validator:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "async-validator:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "async-validator:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/async-validator/src/test.ts",
+            "polyfills": "projects/async-validator/src/polyfills.ts",
+            "tsConfig": "projects/async-validator/tsconfig.spec.json",
+            "karmaConfig": "projects/async-validator/karma.conf.js",
+            "assets": [
+              "projects/async-validator/src/favicon.ico",
+              "projects/async-validator/src/assets"
+            ],
+            "styles": [
+              "projects/async-validator/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/async-validator/tsconfig.app.json",
+              "projects/async-validator/tsconfig.spec.json",
+              "projects/async-validator/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/async-validator/e2e/protractor.conf.js",
+            "devServerTarget": "async-validator:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "async-validator:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "three-validators": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/three-validators",
+      "sourceRoot": "projects/three-validators/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/three-validators",
+            "index": "projects/three-validators/src/index.html",
+            "main": "projects/three-validators/src/main.ts",
+            "polyfills": "projects/three-validators/src/polyfills.ts",
+            "tsConfig": "projects/three-validators/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/three-validators/src/favicon.ico",
+              "projects/three-validators/src/assets"
+            ],
+            "styles": [
+              "projects/three-validators/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/three-validators/src/environments/environment.ts",
+                  "with": "projects/three-validators/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "three-validators:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "three-validators:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "three-validators:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/three-validators/src/test.ts",
+            "polyfills": "projects/three-validators/src/polyfills.ts",
+            "tsConfig": "projects/three-validators/tsconfig.spec.json",
+            "karmaConfig": "projects/three-validators/karma.conf.js",
+            "assets": [
+              "projects/three-validators/src/favicon.ico",
+              "projects/three-validators/src/assets"
+            ],
+            "styles": [
+              "projects/three-validators/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/three-validators/tsconfig.app.json",
+              "projects/three-validators/tsconfig.spec.json",
+              "projects/three-validators/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/three-validators/e2e/protractor.conf.js",
+            "devServerTarget": "three-validators:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "three-validators:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "reactive-validator": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/reactive-validator",
+      "sourceRoot": "projects/reactive-validator/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/reactive-validator",
+            "index": "projects/reactive-validator/src/index.html",
+            "main": "projects/reactive-validator/src/main.ts",
+            "polyfills": "projects/reactive-validator/src/polyfills.ts",
+            "tsConfig": "projects/reactive-validator/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/reactive-validator/src/favicon.ico",
+              "projects/reactive-validator/src/assets"
+            ],
+            "styles": [
+              "projects/reactive-validator/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/reactive-validator/src/environments/environment.ts",
+                  "with": "projects/reactive-validator/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "reactive-validator:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "reactive-validator:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "reactive-validator:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/reactive-validator/src/test.ts",
+            "polyfills": "projects/reactive-validator/src/polyfills.ts",
+            "tsConfig": "projects/reactive-validator/tsconfig.spec.json",
+            "karmaConfig": "projects/reactive-validator/karma.conf.js",
+            "assets": [
+              "projects/reactive-validator/src/favicon.ico",
+              "projects/reactive-validator/src/assets"
+            ],
+            "styles": [
+              "projects/reactive-validator/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/reactive-validator/tsconfig.app.json",
+              "projects/reactive-validator/tsconfig.spec.json",
+              "projects/reactive-validator/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/reactive-validator/e2e/protractor.conf.js",
+            "devServerTarget": "reactive-validator:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "reactive-validator:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "template-validator": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/template-validator",
+      "sourceRoot": "projects/template-validator/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/template-validator",
+            "index": "projects/template-validator/src/index.html",
+            "main": "projects/template-validator/src/main.ts",
+            "polyfills": "projects/template-validator/src/polyfills.ts",
+            "tsConfig": "projects/template-validator/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/template-validator/src/favicon.ico",
+              "projects/template-validator/src/assets"
+            ],
+            "styles": [
+              "projects/template-validator/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/template-validator/src/environments/environment.ts",
+                  "with": "projects/template-validator/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "template-validator:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "template-validator:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "template-validator:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/template-validator/src/test.ts",
+            "polyfills": "projects/template-validator/src/polyfills.ts",
+            "tsConfig": "projects/template-validator/tsconfig.spec.json",
+            "karmaConfig": "projects/template-validator/karma.conf.js",
+            "assets": [
+              "projects/template-validator/src/favicon.ico",
+              "projects/template-validator/src/assets"
+            ],
+            "styles": [
+              "projects/template-validator/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/template-validator/tsconfig.app.json",
+              "projects/template-validator/tsconfig.spec.json",
+              "projects/template-validator/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/template-validator/e2e/protractor.conf.js",
+            "devServerTarget": "template-validator:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "template-validator:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "group-validators": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/group-validators",
+      "sourceRoot": "projects/group-validators/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/group-validators",
+            "index": "projects/group-validators/src/index.html",
+            "main": "projects/group-validators/src/main.ts",
+            "polyfills": "projects/group-validators/src/polyfills.ts",
+            "tsConfig": "projects/group-validators/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/group-validators/src/favicon.ico",
+              "projects/group-validators/src/assets"
+            ],
+            "styles": [
+              "projects/group-validators/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/group-validators/src/environments/environment.ts",
+                  "with": "projects/group-validators/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "group-validators:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "group-validators:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "group-validators:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/group-validators/src/test.ts",
+            "polyfills": "projects/group-validators/src/polyfills.ts",
+            "tsConfig": "projects/group-validators/tsconfig.spec.json",
+            "karmaConfig": "projects/group-validators/karma.conf.js",
+            "assets": [
+              "projects/group-validators/src/favicon.ico",
+              "projects/group-validators/src/assets"
+            ],
+            "styles": [
+              "projects/group-validators/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/group-validators/tsconfig.app.json",
+              "projects/group-validators/tsconfig.spec.json",
+              "projects/group-validators/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/group-validators/e2e/protractor.conf.js",
+            "devServerTarget": "group-validators:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "group-validators:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "dynamic-validator": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/dynamic-validator",
+      "sourceRoot": "projects/dynamic-validator/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/dynamic-validator",
+            "index": "projects/dynamic-validator/src/index.html",
+            "main": "projects/dynamic-validator/src/main.ts",
+            "polyfills": "projects/dynamic-validator/src/polyfills.ts",
+            "tsConfig": "projects/dynamic-validator/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/dynamic-validator/src/favicon.ico",
+              "projects/dynamic-validator/src/assets"
+            ],
+            "styles": [
+              "projects/dynamic-validator/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/dynamic-validator/src/environments/environment.ts",
+                  "with": "projects/dynamic-validator/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "dynamic-validator:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "dynamic-validator:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "dynamic-validator:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dynamic-validator/src/test.ts",
+            "polyfills": "projects/dynamic-validator/src/polyfills.ts",
+            "tsConfig": "projects/dynamic-validator/tsconfig.spec.json",
+            "karmaConfig": "projects/dynamic-validator/karma.conf.js",
+            "assets": [
+              "projects/dynamic-validator/src/favicon.ico",
+              "projects/dynamic-validator/src/assets"
+            ],
+            "styles": [
+              "projects/dynamic-validator/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dynamic-validator/tsconfig.app.json",
+              "projects/dynamic-validator/tsconfig.spec.json",
+              "projects/dynamic-validator/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/dynamic-validator/e2e/protractor.conf.js",
+            "devServerTarget": "dynamic-validator:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "dynamic-validator:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "form-validation"
+}

@@ -1,0 +1,29 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+  <div>
+    Phone Number:
+    <!--ln9 - This field is required-->
+    <!--ln10 - Adds the pattern validator to allow only digits-->
+    <!--ln12 - The local variable #phone gives access to the value of this control's model-->
+    <input type="text" name="telephone" ngModel
+           required
+           pattern="[0-9]*"
+           minlength="10"
+           #phone="ngModel">
+  </div>
+
+  <!--Hides the errors section if the form control is valid or pristine-->
+  <div [hidden]="phone.valid || phone.pristine">
+    <div class="error" [hidden]="!phone.hasError('required')">
+      Phone is required
+    </div>
+    <div class="error" [hidden]="!phone.hasError('minlength')">
+      Phone has to have at least 10 digits
+    </div>
+    <div class="error" [hidden]="!phone.hasError('pattern')">
+      Only digits are allowed
+    </div>
+  </div>
+
+  <!--Disables the Submit button until the form is valid-->
+  <button type="submit" [disabled]="f.invalid">Submit</button>
+</form>

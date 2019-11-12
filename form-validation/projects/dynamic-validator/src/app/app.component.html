@@ -1,0 +1,9 @@
+<form [formGroup]="formModel">
+  Country:  <input type="text" formControlName="country">
+  <br>
+  Phone:  <input type ="text" formControlName="phone">
+
+  <span class="error" *ngIf="formModel.controls['phone'].invalid && formModel.controls['phone'].dirty">
+    Min length: {{this.formModel.controls['phone'].getError('minlength')?.requiredLength}}
+  </span>
+</form>

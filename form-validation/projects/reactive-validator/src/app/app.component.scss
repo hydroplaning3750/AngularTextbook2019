@@ -1,0 +1,4 @@
+//Only apply this style when a corresponding control is dirty and invalid
+.social.ng-dirty.ng-invalid {
+    background-color: lightpink;
+}

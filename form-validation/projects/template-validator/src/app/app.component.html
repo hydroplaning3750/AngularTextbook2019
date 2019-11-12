@@ -1,0 +1,4 @@
+<form #f="ngForm">
+  SSN:  <input type="text" name="my-ssn" class="social" ngModel ssn>
+        <span [hidden]="!(f.form.get('socialSecurity').dirty && f.form.hasError('ssn', 'my-ssn'))">SSN is invalid</span>
+</form>

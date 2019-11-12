@@ -1,0 +1,39 @@
+<form [formGroup]="formModel" (ngSubmit)="onSubmit()">
+  <div>
+    Username: <input type="text" formControlName="username">
+    <span class="error"
+          [hidden]="!formModel.hasError('required', 'username')">
+      Username is required  
+    </span>
+  </div>
+
+  <div>
+    SSN: <input type="text" formControlName="socialSecurity">
+    <span class="error"
+          [hidden]="!formModel.hasError('ssn', 'socialSecurity')">
+      SSN is invalid
+    </span>
+  </div>
+
+  <div formGroupName="passwordsGroup">
+    <div>
+      Password: <input type="password" formControlName="password">
+      <span class="error"
+            [hidden]="!formModel.hasError('minlength', ['passwordsGroup', 'password'])">
+        Password is too short
+      </span>
+    </div>
+
+    <div>
+      Confirm Password: <input type="password" formControlName="pwConfirm">
+      <span class="error"
+            [hidden]="!formModel.hasError('equal', 'passwordsGroup')">
+        Passwords must match
+      </span>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="formModel.invalid">
+    Submit
+  </button>
+</form>
