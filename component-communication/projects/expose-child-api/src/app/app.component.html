@@ -1,0 +1,11 @@
+<h1>Parent</h1>
+<app-child name="John" #child1></app-child>
+<app-child name="Mary" #child2></app-child>
+
+<button (click)="child1.greet()">Invoke greet() on child 1</button>
+<br />
+<button (click)="child2.greet()">Invoke greet() on child 2</button>
+<br /><br />
+<button (click)="greetAllChildren()">Invoke greet() on both children</button>
+
+<h3>(check the console)</h3>

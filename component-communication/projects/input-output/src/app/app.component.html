@@ -1,0 +1,13 @@
+<h1>Input:</h1>
+<!--When the user moves the focus from the input field (change event), invokes the event handler passing the event object to it-->
+<input type="text" placeholder="Enter stock (e.g. AAPL"
+  (change)="onChangeEvent($event)">
+
+  <app-order-processor [stockSymbol]="stock"
+                       [quantity]="numberOfShares"></app-order-processor>
+                       
+<h2>Output</h2>
+AppComponent received: {{priceQuote?.stockSymbol}}
+                       {{priceQuote?.lastPrice | currency: 'USD'}}
+
+<app-price-quoter (lastPriceEmitter)="priceQuoteHandler($event)"></app-price-quoter>

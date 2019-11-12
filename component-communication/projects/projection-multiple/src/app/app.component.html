@@ -1,0 +1,12 @@
+<h2>Parent</h2>
+<div>This div is defined in the Parent's template</div>
+<app-child>
+  <!--Projects this div onto the child's element with the header CSS selector-->
+  <div class="header">
+    <i>Child got this header from parent on {{todaysDateFormatted}}</i>
+  </div>
+  <div class="footer">
+      <!--Projects this div onto the child's element with the footer CSS selector-->
+    <i>Child got this footer from parent on {{todaysDateFormatted}}</i>
+  </div>
+</app-child>
