@@ -1,0 +1,6 @@
+<h1 class="product">Product Detail:</h1>
+             <input placeholder="Enter your name" type="text"
+             [formControl]="name"> <!-- Must import FormsModule and ReactiveFormsModule (https://stackoverflow.com/questions/49796212/angular-material-icons-not-working?rq=1) -->
+             <p></p>
+             <input placeholder="Enter your address" type="text"
+             [(ngModel)]="address"> <!-- Data Binding using ngModel -->
