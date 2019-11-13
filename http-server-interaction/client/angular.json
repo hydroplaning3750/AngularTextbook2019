@@ -25,7 +25,8 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/data"
             ],
             "styles": [
               "src/styles.scss"
@@ -125,32 +126,32 @@
         }
       }
     },
-    "readfile": {
+    "read-file": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "projects/readfile",
-      "sourceRoot": "projects/readfile/src",
+      "root": "projects/read-file",
+      "sourceRoot": "projects/read-file/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/readfile",
-            "index": "projects/readfile/src/index.html",
-            "main": "projects/readfile/src/main.ts",
-            "polyfills": "projects/readfile/src/polyfills.ts",
-            "tsConfig": "projects/readfile/tsconfig.app.json",
+            "outputPath": "dist/read-file",
+            "index": "projects/read-file/src/index.html",
+            "main": "projects/read-file/src/main.ts",
+            "polyfills": "projects/read-file/src/polyfills.ts",
+            "tsConfig": "projects/read-file/tsconfig.app.json",
             "aot": false,
             "assets": [
-              "projects/readfile/src/favicon.ico",
-              "projects/readfile/src/assets"
+              "projects/read-file/src/favicon.ico",
+              "projects/read-file/src/assets"
             ],
             "styles": [
-              "projects/readfile/src/styles.scss"
+              "projects/read-file/src/styles.scss"
             ],
             "scripts": []
           },
@@ -158,8 +159,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/readfile/src/environments/environment.ts",
-                  "with": "projects/readfile/src/environments/environment.prod.ts"
+                  "replace": "projects/read-file/src/environments/environment.ts",
+                  "with": "projects/read-file/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -189,33 +190,33 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "readfile:build"
+            "browserTarget": "read-file:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "readfile:build:production"
+              "browserTarget": "read-file:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "readfile:build"
+            "browserTarget": "read-file:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/readfile/src/test.ts",
-            "polyfills": "projects/readfile/src/polyfills.ts",
-            "tsConfig": "projects/readfile/tsconfig.spec.json",
-            "karmaConfig": "projects/readfile/karma.conf.js",
+            "main": "projects/read-file/src/test.ts",
+            "polyfills": "projects/read-file/src/polyfills.ts",
+            "tsConfig": "projects/read-file/tsconfig.spec.json",
+            "karmaConfig": "projects/read-file/karma.conf.js",
             "assets": [
-              "projects/readfile/src/favicon.ico",
-              "projects/readfile/src/assets"
+              "projects/read-file/src/favicon.ico",
+              "projects/read-file/src/assets"
             ],
             "styles": [
-              "projects/readfile/src/styles.scss"
+              "projects/read-file/src/styles.scss"
             ],
             "scripts": []
           }
@@ -224,9 +225,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/readfile/tsconfig.app.json",
-              "projects/readfile/tsconfig.spec.json",
-              "projects/readfile/e2e/tsconfig.json"
+              "projects/read-file/tsconfig.app.json",
+              "projects/read-file/tsconfig.spec.json",
+              "projects/read-file/e2e/tsconfig.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -236,12 +237,12 @@
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "projects/readfile/e2e/protractor.conf.js",
-            "devServerTarget": "readfile:serve"
+            "protractorConfig": "projects/read-file/e2e/protractor.conf.js",
+            "devServerTarget": "read-file:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "readfile:serve:production"
+              "devServerTarget": "read-file:serve:production"
             }
           }
         }
