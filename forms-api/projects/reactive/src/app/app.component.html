@@ -1,0 +1,30 @@
+<form [formGroup]="myFormModel" (ngSubmit)="onSubmit()">  <!--Binds the instance of the form model to the formGroup directive-->
+  <div>
+    Username: <input type="text" formControlName="username">
+  </div>
+  <div>
+    SSN: <input type="text" formControlName="ssn">
+  </div>
+  <div formGroupName="passwordsGroup">    
+    <div>
+      Password: <input type="text" formControlName="password">
+    </div>
+    <div>
+      Confirm Password: <input type="text" formControlName="pwConfirm">
+    </div>
+  </div>
+  <div formGroupName="dateRange">
+    <div>
+      From: <input type="date" formControlName="from">
+    </div>
+    <div>
+      To: <input type="date" formControlName="to">
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
+
+<!--With a standalone FormControl that's not part of a FormGroup, you can't use the formControlName directive. Use formControl with the property binding-->
+<h2>Weather</h2>
+<input type="text" [formControl]="weatherControl">

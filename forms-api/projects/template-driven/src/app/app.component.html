@@ -1,0 +1,25 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)"> <!--Binds NgForm to a local template variable and submits the form-->
+  <div>
+    Username:  <input type="text" name="username" ngModel>
+  </div>
+  <div>
+    SSN:  <input type="text" name="ssn" ngModel>
+  </div>
+  <div ngModelGroup="passwordsGroup">
+    <div>
+      Password: <input type="text" name="password" ngModel>
+    </div>
+    <div>
+      Confirm Password: <input type="text" name="pwConfirm" ngModel>
+    </div>
+  </div>
+  <div ngModelGroup="date">
+    <div>
+      From: <input type="date" name="from" ngModel>
+    </div>
+    <div>
+      To: <input type="date" name="to" ngModel>
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+</form>
