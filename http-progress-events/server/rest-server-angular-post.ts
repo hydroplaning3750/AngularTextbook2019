@@ -1,3 +1,10 @@
+//INSTRUCTIONS:
+//  npm install @types/node -- installs net dependency for AddressInfo
+//  npm i typescript --save-dev -- installs tsc (TypeScript Compiler)
+//  npm run tsc OR npx tsc -- starts server, adds static assets to /build dir
+//  node build/my-express-server -- begins listening on localhost
+//  Navigate to localhost:8000 from a browser!
+
 import * as express from "express";
 import * as path from "path";
 import * as bodyParser from "body-parser";
