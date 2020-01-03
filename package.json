@@ -1,0 +1,19 @@
+{
+  "name": "angulartextbook2019",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hydroplaning3750/AngularTextbook2019.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hydroplaning3750/AngularTextbook2019/issues"
+  },
+  "homepage": "https://github.com/hydroplaning3750/AngularTextbook2019#readme"
+}
