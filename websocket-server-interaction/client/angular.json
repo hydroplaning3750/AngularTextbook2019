@@ -125,6 +125,128 @@
           }
         }
       }
+    },
+    "websocket-service-client": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/websocket-service-client",
+      "sourceRoot": "projects/websocket-service-client/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/websocket-service-client",
+            "index": "projects/websocket-service-client/src/index.html",
+            "main": "projects/websocket-service-client/src/main.ts",
+            "polyfills": "projects/websocket-service-client/src/polyfills.ts",
+            "tsConfig": "projects/websocket-service-client/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/websocket-service-client/src/favicon.ico",
+              "projects/websocket-service-client/src/assets"
+            ],
+            "styles": [
+              "projects/websocket-service-client/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/websocket-service-client/src/environments/environment.ts",
+                  "with": "projects/websocket-service-client/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "websocket-service-client:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "websocket-service-client:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "websocket-service-client:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/websocket-service-client/src/test.ts",
+            "polyfills": "projects/websocket-service-client/src/polyfills.ts",
+            "tsConfig": "projects/websocket-service-client/tsconfig.spec.json",
+            "karmaConfig": "projects/websocket-service-client/karma.conf.js",
+            "assets": [
+              "projects/websocket-service-client/src/favicon.ico",
+              "projects/websocket-service-client/src/assets"
+            ],
+            "styles": [
+              "projects/websocket-service-client/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/websocket-service-client/tsconfig.app.json",
+              "projects/websocket-service-client/tsconfig.spec.json",
+              "projects/websocket-service-client/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/websocket-service-client/e2e/protractor.conf.js",
+            "devServerTarget": "websocket-service-client:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "websocket-service-client:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "client"
 }
