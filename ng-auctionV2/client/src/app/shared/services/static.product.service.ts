@@ -4,28 +4,37 @@ import { Observable } from 'rxjs';
 import { IProduct } from '../interfaces/product';
 import { map, tap } from 'rxjs/operators';
 import { IProductSearchParams } from '../interfaces/IProductSearchParams';
+import { BaseProductService } from './base.product.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class StaticProductService implements BaseProductService {
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _httpClient: HttpClient) { }
 
   getAllProducts(): Observable<IProduct[]> {
-    return this._http.get<IProduct[]>('/data/products.json');
+    return this._httpClient.get<IProduct[]>('/data/products.json');
   }
 
-  getById(id: number): Observable<IProduct> {
+  getProductById(id: number): Observable<IProduct> {
     return this.getAllProducts().pipe(
       map(products => products.find(p => p.id == id))
     );
   }
 
-  getByCategory(category: string): Observable<IProduct[]> {
+  getProductsByCategory(category: string): Observable<IProduct[]> {
     return this.getAllProducts().pipe(
       map(products => products.filter(p => p.categories.includes(category)))
     );
+  }
+
+  getAllCategories(): Observable<string[]> {
+    return this._httpClient.get<IProduct[]>('/data/products.json')
+      .pipe(
+        map(this.reduceCategories),
+        map(categories => Array.from(new Set(categories)))
+      );
   }
 
   /**
@@ -36,7 +45,7 @@ export class ProductService {
    *  See https://github.com/ReactiveX/rxjs/blob/master/doc/lettable-operators.md
    */
   getDistinctCategories(): Observable<string[]> {
-    return this._http.get<IProduct[]>('/data/products.json')
+    return this._httpClient.get<IProduct[]>('/data/products.json')
       .pipe(
         tap(value => console.log('Before reducing categories', JSON.stringify(value[0]['categories']))),
         map(this.reduceCategories),

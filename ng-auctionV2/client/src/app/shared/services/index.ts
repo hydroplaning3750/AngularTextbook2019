@@ -1,7 +1,9 @@
-import { ProductService } from './product.service';
+import { BaseProductService } from './base.product.service';
+import { HttpProductService } from './http.product.service';
 
-export { ProductService } from './product.service';
+export { StaticProductService as ProductService } from './static.product.service';
 
 export const SHARED_SERVICES = [
-  ProductService
+  // StaticProductService
+  { provide: BaseProductService, useClass: HttpProductService }
 ];

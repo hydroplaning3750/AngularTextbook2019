@@ -1,21 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../shared/services';
+import { Component } from '@angular/core';
 import { IProduct } from '../shared/interfaces/product';
 import { Observable } from 'rxjs';
 import { map, filter, switchMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
+import { BaseProductService } from '../shared/services/base.product.service';
 
 @Component({
   selector: 'nga-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent {
   public product$: Observable<IProduct>;
   public suggestedProducts$: Observable<IProduct[]>;
 
   constructor(private _route: ActivatedRoute,
-    private _productService: ProductService) {
+    private _productService: BaseProductService) {
       this.product$ = _route.paramMap
         .pipe(
           //Gets the productId from the ActivatedRoute's param map
@@ -27,13 +27,9 @@ export class ProductComponent implements OnInit {
           //  - ex: !null = false
           filter(productId => !!productId),
           //Switches to the observable that retrieves details for the specified product
-          switchMap(productId => _productService.getById(productId))
+          switchMap(productId => _productService.getProductById(productId))
         );
       
       this.suggestedProducts$ = this._productService.getAllProducts();
      }
-
-  ngOnInit() {
-  }
-
 }

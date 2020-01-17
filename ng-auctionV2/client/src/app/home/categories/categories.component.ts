@@ -30,6 +30,6 @@ export class CategoriesComponent {
   private getCategory(category: string): Observable<IProduct[]> {
     return category.toLowerCase() === 'all'
       ? this._productService.getAllProducts()
-      : this._productService.getByCategory(category.toLowerCase());
+      : this._productService.getProductsByCategory(category.toLowerCase());
   }
 }
